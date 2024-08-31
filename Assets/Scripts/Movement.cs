@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-Rigidbody rb;
+    [SerializeField] float mainThrust = 100f;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start() { 
@@ -23,7 +24,7 @@ Rigidbody rb;
         if (Input.GetKey(KeyCode.Space))
         {
             // rb.AddRelativeForce(0, 1, 0);
-            rb.AddRelativeForce(Vector3.up); //It's the same thing!
+            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); //It's the same thing!
         }
     }
 
