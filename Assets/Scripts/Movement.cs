@@ -1,14 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 100f;
+    [SerializeField]
+    float mainThrust = 1000f;
+
+    [SerializeField]
+    float rotationThrust = 160f;
     Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start() { 
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
@@ -32,11 +38,20 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("rotate left");
+            // transform.Rotate(Vector3.back);
+            // transform.Rotate(Vector3.forward * rotationThrust * Time.deltaTime);
+            ApplyRotation(rotationThrust);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("rotate right");
+            // transform.Rotate(Vector3.back);
+            // transform.Rotate(-Vector3.forward * rotationThrust * Time.deltaTime);
+            ApplyRotation(-rotationThrust);
         }
+    }
+
+    void ApplyRotation(float rotationThisFrame)
+    {
+        transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
     }
 }
