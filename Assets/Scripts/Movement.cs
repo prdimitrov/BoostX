@@ -11,11 +11,13 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float rotationThrust = 160f;
     Rigidbody rb;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,14 @@ public class Movement : MonoBehaviour
         {
             // rb.AddRelativeForce(0, 1, 0);
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); //It's the same thing!
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 
