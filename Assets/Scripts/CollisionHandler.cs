@@ -13,12 +13,24 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("Player reached the finish line!");
+                LoadNextLevel();
                 break;
             default:
                 Debug.Log("Player just crashed into something!");
                 ReloadLevel();
                 break;
         }
+    }
+
+    private static void LoadNextLevel()
+    {
+       int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+       int nextSceneIndex = currentSceneIndex + 1;
+       if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) 
+       {
+        nextSceneIndex = 0;
+       }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private void ReloadLevel()
