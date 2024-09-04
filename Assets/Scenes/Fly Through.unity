@@ -183,23 +183,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd60409e5f8740d49b8152192ff16379, type: 3}
---- !u!1 &292437216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1252013554274946763, guid: d11c79a057fbe9549989a20080b786df, type: 3}
-  m_PrefabInstance: {fileID: 8065964060662454203}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &292437217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292437216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53aae0fcb6f55964eb68315f9f78f254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,14 +568,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shuttle
       objectReference: {fileID: 0}
-    - target: {fileID: 2266480387585096951, guid: d11c79a057fbe9549989a20080b786df, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266480387585096951, guid: d11c79a057fbe9549989a20080b786df, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6623461749724061719, guid: d11c79a057fbe9549989a20080b786df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -636,10 +611,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1252013554274946763, guid: d11c79a057fbe9549989a20080b786df, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 292437217}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11c79a057fbe9549989a20080b786df, type: 3}
 --- !u!1001 &8524992045714740551
 PrefabInstance:
