@@ -5,10 +5,24 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 1000f;
+    [SerializeField]
+    float mainThrust = 1000f;
 
-    [SerializeField] float rotationThrust = 160f;
-    [SerializeField] AudioClip mainEngineAudio;
+    [SerializeField]
+    float rotationThrust = 160f;
+
+    [SerializeField]
+    AudioClip mainEngineAudio;
+
+    [SerializeField]
+    ParticleSystem mainThrusterParticles;
+
+    [SerializeField]
+    ParticleSystem leftThrusterParticles;
+
+    [SerializeField]
+    ParticleSystem rightThrusterParticles;
+
     Rigidbody rb;
     AudioSource audioSource;
 
@@ -36,10 +50,15 @@ public class Movement : MonoBehaviour
             {
                 audioSource.PlayOneShot(mainEngineAudio);
             }
+            if (!mainThrusterParticles.isPlaying)
+            {
+                mainThrusterParticles.Play();
+            }
         }
         else
         {
             audioSource.Stop();
+            mainThrusterParticles.Stop();
         }
     }
 
@@ -50,12 +69,24 @@ public class Movement : MonoBehaviour
             // transform.Rotate(Vector3.back);
             // transform.Rotate(Vector3.forward * rotationThrust * Time.deltaTime);
             ApplyRotation(rotationThrust);
+            if (!rightThrusterParticles.isPlaying)
+            {
+                rightThrusterParticles.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             // transform.Rotate(Vector3.back);
             // transform.Rotate(-Vector3.forward * rotationThrust * Time.deltaTime);
             ApplyRotation(-rotationThrust);
+            if (!leftThrusterParticles.isPlaying)
+            {
+                leftThrusterParticles.Play();
+            }
+        } else 
+        {
+            rightThrusterParticles.Stop();
+            leftThrusterParticles.Stop();
         }
     }
 
